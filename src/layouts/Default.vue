@@ -6,10 +6,14 @@
       </strong>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
+        <g-link class="nav__link" to="/posts/">Posts</g-link>
+        <g-link class="nav__link" to="/user-info/">UserInfo</g-link>
+        <g-link class="nav__link" to="/my-page/">Mypage</g-link>
+        <g-link class="nav__link" to="/user/123">UserDetail</g-link>
         <g-link class="nav__link" to="/about/">About</g-link>
       </nav>
     </header>
-    <slot/>
+    <slot />
   </div>
 </template>
 
@@ -23,9 +27,10 @@ query {
 
 <style>
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
 }
 

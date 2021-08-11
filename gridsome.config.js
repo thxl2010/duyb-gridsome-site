@@ -5,6 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
-  plugins: []
-}
+  siteName: 'Du',
+  siteDescription: 'static site grnerated by Gridsome',
+  plugins: [],
+};
