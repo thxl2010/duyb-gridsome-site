@@ -8,6 +8,7 @@
         <g-link class="nav__link" to="/">Home</g-link>
         <g-link class="nav__link" to="/posts/">Posts</g-link>
         <g-link class="nav__link" to="/posts1/">Posts1</g-link>
+        <g-link class="nav__link" to="/posts2/">Posts2</g-link>
         <g-link class="nav__link" to="/user-info/">UserInfo</g-link>
         <g-link class="nav__link" to="/my-page/">Mypage</g-link>
         <g-link class="nav__link" to="/user/123">UserDetail</g-link>

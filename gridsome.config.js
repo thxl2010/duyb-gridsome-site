@@ -8,4 +8,12 @@ module.exports = {
   siteName: 'Du',
   siteDescription: 'static site grnerated by Gridsome',
   plugins: [],
+  templates: {
+    Post: [
+      {
+        path: '/posts/:id',
+        component: './src/template/Post.vue',
+      },
+    ],
+  },
 };

@@ -7,27 +7,28 @@
 const axios = require('axios');
 
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
+  api.loadSource(async ({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
     const collection = addCollection('Post');
 
-    const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    const { data } = await axios.get(
+      'https://jsonplaceholder.typicode.com/posts'
+    );
 
     for (const item of data) {
       collection.addNode({
         id: item.id,
         title: item.title,
-        content: item.content,
+        content: item.body,
       });
     }
-
   });
 
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
     createPage({
       path: '/my-page',
-      component: './src/templates/MyPage.vue',
+      component: './src/pages/MyPage.vue',
     });
   });
 };
