@@ -6,8 +6,16 @@
 
 module.exports = {
   siteName: 'Du',
-  siteDescription: 'static site grnerated by Gridsome',
-  plugins: [],
+  siteDescription: 'static blog site grnerated by Gridsome',
+  plugins: [
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'BlogPost',
+        path: './content/blog/**/*.md',
+      },
+    },
+  ],
   templates: {
     Post: [
       {
