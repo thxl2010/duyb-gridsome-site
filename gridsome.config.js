@@ -21,6 +21,7 @@ module.exports = {
         apiURL: 'http://localhost:1337',
         queryLimit: 1000, // Defaults to 100
         contentTypes: ['post'],
+        typeName: 'Strapi', // ! templates[`${typeName}${contentTypes[i]}`]
         // singleTypes: ['impressum'],
         // Possibility to login with a Strapi user,
         // when content types are not publicly available (optional).
@@ -32,10 +33,11 @@ module.exports = {
     },
   ],
   templates: {
-    Post: [
+    // ! `${typeName}${contentTypes[i]}`
+    StrapiPost: [
       {
-        path: '/posts/:id',
-        component: './src/template/Post.vue',
+        path: '/post/:id',
+        component: './src/templates/Post.vue',
       },
     ],
   },
