@@ -50,11 +50,7 @@
           <!-- Divider-->
           <hr class="my-4" />
           <!-- Pager-->
-          <div class="d-flex justify-content-end mb-4">
-            <a class="btn btn-primary text-uppercase" href="#!"
-              >Older Posts →</a
-            >
-          </div>
+          <Pager :info="$page.posts.pageInfo" />
         </div>
       </div>
     </div>
@@ -62,8 +58,12 @@
 </template>
 
 <page-query>
-query {
-  posts: allStrapiPost {
+query ($page: Int) {
+  posts: allStrapiPost (perPage: 2, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
@@ -82,10 +82,15 @@ query {
 </page-query>
 
 <script>
+import { Pager } from 'gridsome';
+
 export default {
   name: 'Index',
   metaInfo: {
     title: 'Hello, world!',
+  },
+  components: {
+    Pager,
   },
 };
 </script>
