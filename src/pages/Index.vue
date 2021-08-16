@@ -38,12 +38,12 @@
               on {{ edge.node.created_at }}
             </p>
             <p>
-              <a
+              <g-link
                 v-for="tag in edge.node.tags"
                 :key="tag.id"
-                href=""
+                :to="`/tag/${tag.id}`"
                 style="margin-right: 1em"
-                >{{ tag.title }}</a
+                >{{ tag.title }}</g-link
               >
             </p>
           </div>
