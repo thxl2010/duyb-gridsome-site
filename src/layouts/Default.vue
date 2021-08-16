@@ -3,7 +3,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="/">Du</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -25,7 +25,7 @@
               <a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/post"
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/post/1"
                 >Sample Post</a
               >
             </li>
