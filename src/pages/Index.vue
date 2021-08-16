@@ -50,7 +50,7 @@
           <!-- Divider-->
           <hr class="my-4" />
           <!-- Pager-->
-          <Pager :info="$page.posts.pageInfo" />
+          <Pager :info="$page.posts.pageInfo" class="pager" />
         </div>
       </div>
     </div>
@@ -94,3 +94,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.pager >>> a {
+  margin: 2px 3px;
+}
+</style>

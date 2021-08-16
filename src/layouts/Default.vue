@@ -74,7 +74,7 @@
               </li>
             </ul>
             <div class="small text-center text-muted fst-italic">
-              Copyright &copy; Your Website 2021
+              Copyright &copy; Du 2021
             </div>
           </div>
         </div>
