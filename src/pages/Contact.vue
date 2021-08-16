@@ -3,7 +3,7 @@
     <!-- Page Header-->
     <header
       class="masthead"
-      style="background-image: url('assets/img/contact-bg.jpg')"
+      style="background-image: url('/img/contact-bg.jpg')"
     >
       <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -33,9 +33,11 @@
               <!-- To make this form functional, sign up at-->
               <!-- https://startbootstrap.com/solution/contact-forms-->
               <!-- to get an API token!-->
-              <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+              <!-- data-sb-form-api-token="API_TOKEN" -->
+              <form id="contactForm">
                 <div class="form-floating">
                   <input
+                    v-model="form.name"
                     class="form-control"
                     id="name"
                     type="text"
@@ -52,6 +54,7 @@
                 </div>
                 <div class="form-floating">
                   <input
+                    v-model="form.email"
                     class="form-control"
                     id="email"
                     type="email"
@@ -71,6 +74,7 @@
                 </div>
                 <div class="form-floating">
                   <input
+                    v-model="form.phone"
                     class="form-control"
                     id="phone"
                     type="tel"
@@ -87,6 +91,7 @@
                 </div>
                 <div class="form-floating">
                   <textarea
+                    v-model="form.message"
                     class="form-control"
                     id="message"
                     placeholder="Enter your message here..."
@@ -127,9 +132,10 @@
                 </div>
                 <!-- Submit Button-->
                 <button
-                  class="btn btn-primary text-uppercase disabled"
+                  class="btn btn-primary text-uppercase"
                   id="submitButton"
                   type="submit"
+                  @click.prevent="submit"
                 >
                   Send
                 </button>
@@ -143,10 +149,43 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Contact',
   metaInfo: {
     title: 'contact me',
+  },
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      },
+    };
+  },
+  methods: {
+    async submit() {
+      try {
+        const { data } = await axios.post(
+          'http://localhost:1337/contacts',
+          this.form
+        );
+        console.log('submit data :', data);
+        this.form = Object.assign({}, this.form, {
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+        });
+        window.alert('提交成功');
+      } catch (error) {
+        console.error('submit error :', error);
+        window.alert('提交失败，请稍后重试');
+      }
+    },
   },
 };
 </script>
