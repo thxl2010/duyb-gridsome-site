@@ -6,13 +6,44 @@
 
 module.exports = {
   siteName: 'Du',
-  siteDescription: 'static site grnerated by Gridsome',
-  plugins: [],
+  siteDescription: 'static blog site grnerated by Gridsome',
+  plugins: [
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'BlogPost',
+        path: './content/blog/**/*.md',
+      },
+    },
+    {
+      use: '@gridsome/source-strapi',
+      options: {
+        apiURL: 'http://localhost:1337',
+        queryLimit: 1000, // Defaults to 100
+        contentTypes: ['post', 'tag'],
+        typeName: 'Strapi', // ! templates[`${typeName}${contentTypes[i]}`]
+        singleTypes: ['general'],
+        // Possibility to login with a Strapi user,
+        // when content types are not publicly available (optional).
+        // loginData: {
+        //   identifier: '',
+        //   password: '',
+        // },
+      },
+    },
+  ],
   templates: {
-    Post: [
+    // ! `${typeName}${contentTypes[i]}`
+    StrapiPost: [
       {
-        path: '/posts/:id',
-        component: './src/template/Post.vue',
+        path: '/post/:id',
+        component: './src/templates/Post.vue',
+      },
+    ],
+    StrapiTag: [
+      {
+        path: '/tag/:id',
+        component: './src/templates/Tag.vue',
       },
     ],
   },
