@@ -6,7 +6,7 @@
       :style="{
         backgroundImage: `url(${
           $page.post.cover && $page.post.cover.url
-            ? 'http://localhost:1337' + $page.post.cover.url
+            ? GRIDSOME_API_URL + $page.post.cover.url
             : '/img/post-bg.jpg'
         })`,
       }"

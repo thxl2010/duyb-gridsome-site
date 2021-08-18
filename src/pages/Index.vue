@@ -6,7 +6,7 @@
       :style="{
         backgroundImage: `url(${
           general.cover && general.cover.url
-            ? 'http://localhost:1337' + general.cover.url
+            ? GRIDSOME_API_URL + general.cover.url
             : '/img/home-bg.jpg'
         })`,
       }"
